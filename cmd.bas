@@ -14,7 +14,7 @@ sub sline(ffile as string)
                         scommand a
 		wend
 		escapes:
-	close 1
+	
 end sub
 color 7,1
 sline("stdin")
