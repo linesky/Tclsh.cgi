@@ -1,2 +1,3 @@
-# Tclsh.cgi
-Cgi shell script run on host
+# basic.command
+
+command line to windows free basic
