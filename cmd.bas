@@ -1,9 +1,13 @@
-sub scommand(a as string)
+extern "C"
+'fbc -static cmd.bas
+declare sub runs(a as string)
+sub scommand(a as string) export
 	shell a
 end sub 
-sub sline(ffile as string)
+sub sline() export
 	dim a as string
-	a=ffile
+	color 7,6
+	a="stdin"
 		while "" <> a
 			print " BLUE> ";
 			line input a
@@ -11,11 +15,11 @@ sub sline(ffile as string)
 			if a="exit" then goto escapes
 			if a="" then goto escapes
 
-                        scommand a
+                        scommand a+chr(0)
 		wend
 		escapes:
 	
 end sub
-color 7,1
-sline("stdin")
+end extern
+sline()
 	
