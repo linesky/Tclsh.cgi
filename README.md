@@ -1,3 +1,3 @@
 # basic.command
 
-command line to windows free basic
+command line to roots change free basic
