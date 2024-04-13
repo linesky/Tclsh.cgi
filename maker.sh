@@ -2,7 +2,8 @@ printf "\x1bc\x1b[43;37m"
 roots=$(pwd)/roots
 tmps=/tmp/lists.txt
 tmps2=/tmp/lists2.txt
-fbc cmd.bas
+gcc -c fgetss.c -o fgetss.o
+fbc fgetss.o cmd.bas
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin

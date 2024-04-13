@@ -1,21 +1,12 @@
+extern "C"
+declare function fgetss() as zstring ptr
+end extern
 sub scommand(a as string)
 	shell a
 end sub 
 function inputs(a as string)as string
-dim b as string=""
-dim aa as string=""
 print a;
-while 1
-    aa=inkey
-    if aa<>"" then
-        print aa;
-        if aa=chr(13) then goto escapess
-        b=b+aa
-     end if
-wend
-escapess:
-print chr(10)
-inputs=b
+inputs=>*fgetss()
 end function
 sub sline(ffile as string)
 	dim a as string
@@ -25,9 +16,9 @@ sub sline(ffile as string)
 		while 1
 			
 			a=inputs (" BLUE> ")
-			if a="" then goto escapes
-			if a="exit" then goto escapes
-			if a="EXIT" then goto escapes
+			if a=""+chr(10) then goto escapes
+			if a="exit"+chr(10) then goto escapes
+			if a="EXIT"+chr(10) then goto escapes
 			scommand a
 			
 		wend
